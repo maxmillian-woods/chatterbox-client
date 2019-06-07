@@ -1,16 +1,26 @@
 var FormView = {
 
   $form: $('form'),
+  currentUser: null,
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
   },
 
+  setUser: function(username) {
+    FormView.currentUser = username;
+  },
+
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    event.preventDefault();
+    var msgText = $('#message').val();
+    var msg = {username: FormView.currentUser, text: msgText, roomname: window.filter};
     
-    console.log('click!');
+    Parse.create(msg, (data) => {
+      console.log(data);
+    });
+
+    $('#refresh').click();
   },
 
   setStatus: function(active) {
