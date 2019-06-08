@@ -15,7 +15,6 @@ const App = {
     $('.media-body').click(function() {
       Friends.toggleStatus($(this).text());
       Friends.highlightFriends();
-      alert('USERNAME CLICKED');
       Friends.toggleStatus(this.val);
       Friends.highlightFriends();
     });
@@ -25,6 +24,7 @@ const App = {
 
     App.refresher = $('.submit, .btn-primary').click(() => {
       FormView.handleSubmit(App.stopSpinner);
+      $('.message').val('');
       MessagesView.clearMessages();
       App.startSpinner();
       App.fetch(App.stopSpinner);
@@ -35,6 +35,7 @@ const App = {
     });
     App.roomSelect = $('.room-btn').click(() => {
       FormView.changeRoom(App.startSpinner);
+      $('.message').val('');
       MessagesView.clearMessages();
       App.startSpinner();
       App.fetch(App.stopSpinner);

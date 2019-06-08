@@ -13,14 +13,13 @@ const FormView = {
 
   handleSubmit(event) {
     // Stop the browser from submitting the form
-    const msgText = $('#message').val();
+    const msgText = $('.message').val();
     const room = document.getElementById('rm').value;
     const msg = {username: FormView.currentUser, text: msgText, roomname: room};
     
     Parse.create(msg, (data) => {
       console.log(data);
     });
-
     $('#refresh').click();
   },
 

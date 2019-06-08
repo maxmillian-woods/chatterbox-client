@@ -37,6 +37,7 @@
             <a href="#fake"><span class="glyphicon glyphicon-envelope"></span> Messages</a>
           </li>
         </ul>
+        <!-- <h1>chatterbox</h1> -->
         <div class="navbar-form navbar-right">
           <div class="form-group has-feedback">
             <input type="text" class="form-control-nav" id="search" aria-describedby="search1">
@@ -107,7 +108,14 @@
               <div class="media-body">
                 <div class="form-group has-feedback">
                   <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
-                  <input type="text" class="form-control" id="search2" aria-describedby="search">
+                  <form action="/scripts/formView.js" id="send" method="post">
+                    <input type="text" name="message" id="search2" class="message form-control" aria-describedby="search"/><input type="submit" name="submit" class="submit btn btn-primary"/>
+                  </form>
+                  <div id="rooms">
+                    Room:
+                    <select id="rm"></select>
+                    <button class="room-btn btn btn-primary">Add Room</button>
+                  </div>
                   <span class="glyphicon glyphicon-camera form-control-feedback" aria-hidden="true"></span>
                   <span id="search2" class="sr-only">(success)</span>
                 </div>
@@ -115,17 +123,7 @@
             </div>
           </div>
           <div id="main">
-            <h1>chatterbox</h1>
             <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
-            <div id="rooms">
-              Room:
-              <select id="rm"></select>
-              <button class="room-btn">Add Room</button>
-            </div>
-            <form action="/scripts/formView.js" id="send" method="post">
-              <input type="text" name="message" id="message"/>
-              <input type="submit" name="submit" class="submit"/>
-            </form>
           </div>
           <div class="container">
             <div class="row">
@@ -146,7 +144,7 @@
   
   
         <div class="panel panel-default">
-          <div class="panel-heading">Lorem</div>
+          <div class="panel-heading">Home</div>
           <div class="panel-body">
             <ul class="nav nav-pills">
               <li role="presentation" class="active"><a href="#">Home</a></li>
