@@ -1,20 +1,21 @@
-var FormView = {
+const FormView = {
 
   $form: $('form'),
   currentUser: null,
 
-  initialize: function() {
+  initialize() {
     FormView.$form.on('submit', FormView.handleSubmit);
   },
 
-  setUser: function(username) {
+  setUser(username) {
     FormView.currentUser = username;
   },
 
-  handleSubmit: function(event) {
+  handleSubmit(event) {
     // Stop the browser from submitting the form
-    var msgText = $('#message').val();
-    var msg = {username: FormView.currentUser, text: msgText, roomname: window.filter};
+    const msgText = $('#message').val();
+    const room = document.getElementById('rm').value;
+    const msg = {username: FormView.currentUser, text: msgText, roomname: room};
     
     Parse.create(msg, (data) => {
       console.log(data);
@@ -23,9 +24,15 @@ var FormView = {
     $('#refresh').click();
   },
 
-  setStatus: function(active) {
-    var status = active ? 'true' : null;
+  setStatus(active) {
+    const status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
+  },
+  changeRoom(event) {
+    const msgText = $('#message').val();
+    const msg = {username: FormView.currentUser, roomname: msgText};
+    Parse.create(msg, (data) => {
+    });
   }
 
 };
