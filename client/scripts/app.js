@@ -55,7 +55,7 @@ const App = {
           // if not include dont append 
           // hacker defense
           if (!msg.includes('<') && room === currentRoom) {
-            $('.panel-body').append(`<div class="media>"<a class="media-left" href="/scripts/friends.js"><img alt="" class="media-object img-rounded" src="http://placehold.it/64x64"></a><div class="media-body"><h4 class="media-heading username">${usr}</h4><p>${msg}</p><ul class="nav nav-pills nav-pills-custom"><li><a href="/scripts/friends.js"><span class="glyphicon glyphicon-share-alt"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-retweet"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-option-horizontal"></span></a></li></ul></div></div>`);
+            $('#chats').append(`<div class="media>"<a class="media-left" href="/scripts/friends.js"><img alt="" class="media-object img-rounded" src="http://placehold.it/64x64"></a><div class="media-body"><h4 class="media-heading username">${usr}</h4><p>${msg}</p><ul class="nav nav-pills nav-pills-custom"><li><a href="/scripts/friends.js"><span class="glyphicon glyphicon-share-alt"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-retweet"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li><li><a href="#"><span class="glyphicon glyphicon-option-horizontal"></span></a></li></ul></div></div>`);
           }
         }
         if (room !== null && room !== undefined) {
